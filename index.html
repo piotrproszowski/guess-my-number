@@ -4,27 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="A fun number guessing game where you try to guess a secret number between 1 and 20!" />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="#" type="image/x-icon" />
-    <title>Guess My Number!</title>
+    <title>Guess My Number! - Interactive Number Guessing Game</title>
   </head>
   <body>
     <header>
       <h1>Guess My Number!</h1>
-      <p class="between">(Between 1 and 20)</p>
-      <button class="btn again">Again!</button>
-      <div class="number">?</div>
+      <p class="between" aria-label="Game range">(Between 1 and 20)</p>
+      <button class="btn again" aria-label="Start a new game">Again!</button>
+      <div class="number" aria-label="Secret number display" role="status">?</div>
     </header>
     <main>
-      <section class="left">
-        <input type="number" class="guess" />
-        <button class="btn check">Check!</button>
+      <section class="left" aria-labelledby="game-input-heading">
+        <h2 id="game-input-heading" class="sr-only">Make Your Guess</h2>
+        <label for="guess-input" class="sr-only">Enter your guess (1-20)</label>
+        <input 
+          type="number" 
+          id="guess-input"
+          class="guess" 
+          min="1" 
+          max="20" 
+          step="1"
+          placeholder="Enter guess..."
+          aria-describedby="input-help"
+          autocomplete="off"
+        />
+        <div id="input-help" class="sr-only">Enter a number between 1 and 20</div>
+        <button class="btn check" aria-label="Submit your guess">Check!</button>
       </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
+      <section class="right" aria-labelledby="game-status-heading">
+        <h2 id="game-status-heading" class="sr-only">Game Status</h2>
+        <p class="message" role="status" aria-live="polite">Start guessing...</p>
+        <p class="label-score" aria-label="Current score">
+          💯 Score: <span class="score" aria-live="polite">20</span>
+        </p>
+        <p class="label-highscore" aria-label="High score record">
+          🥇 Highscore: <span class="highscore" aria-live="polite">0</span>
         </p>
       </section>
     </main>
