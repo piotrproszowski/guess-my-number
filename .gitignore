@@ -4,8 +4,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# TypeScript compilation output
-dist/
+# TypeScript compilation output (commented out to include compiled JS in repo)
+# dist/
 *.tsbuildinfo
 
 # Development
