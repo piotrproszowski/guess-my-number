@@ -15,7 +15,20 @@ body {
   font-family: 'Press Start 2P', sans-serif;
   color: #eee;
   background-color: #222;
-  /* background-color: #60b347; */
+  transition: background-color 0.3s ease;
+}
+
+/* Accessibility: Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* LAYOUT */
@@ -67,6 +80,8 @@ h1 {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
+  transition: width 0.3s ease;
+  border-radius: 0.5rem;
 }
 
 .between {
@@ -93,6 +108,23 @@ h1 {
   text-align: center;
   display: block;
   margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guess:focus {
+  outline: none;
+  border-color: #60b347;
+  box-shadow: 0 0 0 3px rgba(96, 179, 71, 0.3);
+}
+
+.guess:invalid {
+  border-color: #e74c3c;
+}
+
+.guess::placeholder {
+  color: #999;
+  font-size: 2rem;
 }
 
 .btn {
@@ -103,17 +135,106 @@ h1 {
   font-family: inherit;
   padding: 2rem 3rem;
   cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .btn:hover {
   background-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 179, 71, 0.5);
 }
 
 .message {
   margin-bottom: 8rem;
   height: 3rem;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .label-score {
   margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  
+  main {
+    flex-direction: column;
+    height: auto;
+    padding: 2rem;
+  }
+  
+  .left, .right {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .guess {
+    width: 20rem;
+    font-size: 4rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  .number {
+    font-size: 5rem;
+    width: 12rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 40%;
+  }
+  
+  .guess {
+    width: 18rem;
+    font-size: 3rem;
+  }
+  
+  .btn {
+    padding: 1.5rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid #000;
+  }
+  
+  .guess {
+    border-width: 6px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
