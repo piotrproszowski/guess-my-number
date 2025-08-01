@@ -26,8 +26,18 @@ A fun and interactive number guessing game built with vanilla HTML, CSS, and Jav
 
 This application has been refactored for better code quality and user experience:
 
+### TypeScript Migration
+- ✅ Full TypeScript conversion with proper type definitions
+- ✅ Interface-based architecture for better code organization
+- ✅ Type safety for DOM manipulation and game state
+- ✅ Enhanced developer experience with IntelliSense support
+- ✅ Compile-time error checking
+- ✅ Modern build process with npm scripts
+
 ### Code Quality
-- ✅ Modular architecture with ES6 class structure
+- ✅ Modular architecture with TypeScript class structure
+- ✅ Type-safe development with full TypeScript support
+- ✅ Interface definitions for better code documentation
 - ✅ Cached DOM elements for better performance
 - ✅ Configuration constants instead of magic numbers
 - ✅ Comprehensive input validation
@@ -53,7 +63,8 @@ This application has been refactored for better code quality and user experience
 
 - **HTML5**: Semantic markup structure
 - **CSS3**: Modern styling with Flexbox and responsive design
-- **JavaScript ES6+**: Modular, object-oriented programming
+- **TypeScript**: Type-safe, object-oriented programming with modern ES features
+- **JavaScript (compiled)**: Generated from TypeScript for browser compatibility
 - **LocalStorage**: Client-side data persistence
 
 ## 📱 Browser Compatibility
@@ -64,15 +75,25 @@ This application has been refactored for better code quality and user experience
 
 ## 🎯 Getting Started
 
+### For Users
 1. Clone this repository
 2. Open `index.html` in your web browser
 3. Start guessing numbers and have fun!
 
 Or serve it with a simple HTTP server:
 ```bash
-python3 -m http.server 8000
+npm start
 # Then visit http://localhost:8000
 ```
+
+### For Developers
+1. Clone this repository
+2. Install dependencies: `npm install`
+3. Make changes to TypeScript files in the `src/` directory
+4. Build the project: `npm run build`
+5. Or use watch mode for development: `npm run watch`
+
+The TypeScript source code is in `src/script.ts` and gets compiled to `dist/script.js`.
 
 ## 🏆 Game Statistics
 
